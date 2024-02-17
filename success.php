@@ -1,44 +1,37 @@
 <?php
-SESSION_start();
+session_start();
 
-require_once("zip.php");
-
-
-print getTop();
-print $_city['found city'];
-print getBottom();
-
-
-function getTop($title = "success", $lang = "en") {
-  $html = "";
-  $html .= "<!doctype html>\n";
-  $html .= "<html lang=\"" . $lang . "\">\n";
-  $html .= "<head>\n";
-  $html .= "\t<title>" . $title . "</title>\n";
-  $html .= "</head>\n";
-  $html .= "<body>\n";
-  return $html;
+function getTop($title = "Result", $lang = "en")
+{
+    $html = "";
+    $html .= "<!doctype html>\n";
+    $html .= "<html lang=\"" . $lang . "\">\n";
+    $html .= "<head>\n";
+    $html .= "\t<title>" . $title . "</title>\n";
+    $html .= "</head>\n";
+    $html .= "<body>\n";
+    return $html;
 }
 
-function getBottom() {
-  $html = "";
-  $html .= "</body></html>";
-  return $html;
+function getBottom()
+{
+    $html = "";
+    $html .= "</body></html>";
+    return $html;
 }
 
 print getTop();
 
-if (isset($_POST['city']))  {
-  $_city=$_POST['city'];
-$message =  $_city;
+if (isset($_SESSION['found_city'])) {
+    $message = "City: " . $_SESSION['found_city'];
+} else {
+    $message = "Wrong Zip Code and City not found so, Redirecting to fill out the form again...";
+    header("Refresh: 5; URL=index.php");
 }
-else{
-$_city ='Error: city not found.';
-$message = $_city;
-}
-echo $message;
 
+unset($_SESSION['found_city']);
+unset($_SESSION['Wrong Zip Code']);
+
+print $message;
 print getBottom();
 ?>
-
-
