@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fa7de77a71165085b9122f93dcda41340e89292a
 <?php
 
 namespace MyNamespace;
@@ -182,6 +185,8 @@ class Page
     $this->_bottomPrepared = $status;
   }
 } // end class
+<<<<<<< HEAD
+=======
 =======
 <?php
 
@@ -367,3 +372,4 @@ class Page
   }
 } // end class
 >>>>>>> 911b502eef771394ee1c730ec657a5e729e3d0be
+>>>>>>> fa7de77a71165085b9122f93dcda41340e89292a
